@@ -1,0 +1,18 @@
+# MacOS X droppings.
+.DS_Store
+
+# SBT artifacts
+target/
+
+# IntelliJ
+.idea/
+*.iml
+
+# Eclipse
+.cache
+.classpath
+.project
+.settings
+
+# Checkpoints if you're running locally during development.
+checkpoints/
