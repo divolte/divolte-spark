@@ -24,7 +24,7 @@ libraryDependencies += "org.apache.spark"       %% "spark-streaming"       % spa
 
 libraryDependencies += "org.apache.spark"       %% "spark-streaming-kafka" % sparkV  % "provided"
 
-libraryDependencies += "org.apache.hadoop"      %  "hadoop-client"       % hadoopV % "provided"
+libraryDependencies += "org.apache.hadoop"      %  "hadoop-client"         % hadoopV % "provided"
 
 libraryDependencies += "org.apache.avro"        %  "avro"                  % avroV
 
