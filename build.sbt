@@ -18,16 +18,15 @@ val sparkV = "1.1.0"
 val hadoopV = "2.3.0"
 val avroV = "1.7.7"
 
-libraryDependencies += "org.apache.spark"       %% "spark-core"            % sparkV  % "provided"
+libraryDependencies += "org.apache.spark"  %% "spark-core"            % sparkV  % "provided"
 
-libraryDependencies += "org.apache.spark"       %% "spark-streaming"       % sparkV  % "provided"
+libraryDependencies += "org.apache.spark"  %% "spark-streaming"       % sparkV  % "provided"
 
-libraryDependencies += "org.apache.spark"       %% "spark-streaming-kafka" % sparkV  % "provided"
+libraryDependencies += "org.apache.spark"  %% "spark-streaming-kafka" % sparkV  % "provided"
 
-libraryDependencies += "org.apache.hadoop"      %  "hadoop-client"         % hadoopV % "provided"
+libraryDependencies += "org.apache.hadoop" %  "hadoop-client"         % hadoopV % "provided"
 
-libraryDependencies += "org.apache.avro"        %  "avro"                  % avroV
+libraryDependencies += "org.apache.avro"   %  "avro"                  % avroV
 
-libraryDependencies += "org.apache.avro"        %  "avro-mapred"           % avroV classifier "hadoop2" excludeAll
+libraryDependencies += "org.apache.avro"   %  "avro-mapred"           % avroV classifier "hadoop2" excludeAll
   ExclusionRule(organization = "org.apache.avro", name = "avro-ipc")
-
