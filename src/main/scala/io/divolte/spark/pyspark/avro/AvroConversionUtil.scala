@@ -91,9 +91,9 @@ object AvroConversionUtil extends Serializable {
       case other => throw new SparkException(
         s"Unknown BYTES type ${other.getClass.getName}")
     }
-    val bytearray = new Array[Byte](bytes.length)
-    System.arraycopy(bytes, 0, bytearray, 0, bytes.length)
-    bytearray
+    val byteArray = new Array[Byte](bytes.length)
+    System.arraycopy(bytes, 0, byteArray, 0, bytes.length)
+    byteArray
   }
 
   def unpackArray(obj: Any, schema: Schema): JCollection[Any] = obj match {
