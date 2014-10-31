@@ -9,7 +9,7 @@ scalaVersion  := "2.10.4"
 scalacOptions := Seq("-unchecked", "-deprecation", "-encoding", "utf8", "-target:jvm-1.7", "-feature")
 
 // Experimental: improved incremental compilation.
-incOptions    := incOptions.value.withNameHashing(true)
+incOptions    := incOptions.value.withNameHashing(nameHashing = true)
 
 // These dependencies assume many are supplied by the Spark execution container.
 // TODO: How do we go about different Hadoop version deps?
