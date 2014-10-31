@@ -11,8 +11,6 @@ scalacOptions := Seq("-unchecked", "-deprecation", "-encoding", "utf8", "-target
 // Experimental: improved incremental compilation.
 incOptions    := incOptions.value.withNameHashing(true)
 
-resolvers += "CDH" at "https://repository.cloudera.com/artifactory/cloudera-repos/"
-
 // These dependencies assume many are supplied by the Spark execution container.
 // TODO: How do we go about different Hadoop version deps?
 // Should we provide a env var option for this?
