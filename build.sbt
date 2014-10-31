@@ -28,9 +28,6 @@ libraryDependencies += "org.apache.hadoop"      %  "hadoop-client"         % had
 
 libraryDependencies += "org.apache.avro"        %  "avro"                  % avroV
 
-libraryDependencies += "org.apache.avro"        %  "avro-mapred"           % avroV classifier "hadoop2" excludeAll(
-    ExclusionRule(organization = "io.netty", name = "netty"),
-    ExclusionRule(organization = "org.jboss.netty"),
-    ExclusionRule(organization = "org.mortbay.jetty"),
-    ExclusionRule(organization = "org.apache.velocity")
-  )
+libraryDependencies += "org.apache.avro"        %  "avro-mapred"           % avroV classifier "hadoop2" excludeAll
+  ExclusionRule(organization = "org.apache.avro", name = "avro-ipc")
+
