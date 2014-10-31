@@ -48,14 +48,14 @@ object AvroConversionUtil extends Serializable {
       case MAP     => unpackMap(obj, schema)
       case BYTES   => unpackBytes(obj)
       case RECORD  => unpackRecord(obj)
-      case STRING  => obj.toString
-      case ENUM    => obj.toString
-      case NULL    => obj
-      case BOOLEAN => obj
-      case DOUBLE  => obj
-      case FLOAT   => obj
-      case INT     => obj
-      case LONG    => obj
+      case STRING |
+           ENUM    => obj.toString
+      case NULL |
+           BOOLEAN |
+           DOUBLE |
+           FLOAT |
+           INT |
+           LONG    => obj
       case other   => throw new SparkException(
         s"Unknown Avro schema type ${other.getName}")
     }
