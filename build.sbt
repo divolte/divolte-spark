@@ -1,5 +1,3 @@
-import AssemblyKeys._
-
 organization  := "io.divolte"
 
 name          := "divolte-spark"
@@ -38,12 +36,3 @@ libraryDependencies += "org.apache.avro"        %  "avro-mapred"           % avr
     ExclusionRule(organization = "org.mortbay.jetty"),
     ExclusionRule(organization = "org.apache.velocity")
   )
-
-assemblySettings
-
-mergeStrategy in assembly <<= (mergeStrategy in assembly) { (old) =>
-  {
-    case PathList(ps @ _*) if ps.last endsWith "pom.properties" => MergeStrategy.discard
-    case x => old(x)
-  }
-}
