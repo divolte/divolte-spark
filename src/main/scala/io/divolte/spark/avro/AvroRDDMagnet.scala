@@ -9,7 +9,7 @@ import org.apache.spark.rdd.RDD
 import scala.reflect.ClassTag
 
 /**
- * Magnet for operations on an RDD containing Avro records.
+ * Magnet for operations on a RDD containing Avro records.
  *
  * This is motivated by the fact that Avro records (ironically) don't implement the
  * [[java.io.Serializable]] interface, which means that the only safe operations are
@@ -42,18 +42,18 @@ class AvroRDDMagnet[+T <: IndexedRecord : ClassTag] private[AvroRDDMagnet] (rdd:
    * small subset of the Avro record, it can be more efficient to extract the
    * fields you need using [[AvroRDDMagnet#fields]].
    *
-   * @return an RDD of [[io.divolte.spark.avro.Record]] instances built from the Avro records.
+   * @return a RDD of [[io.divolte.spark.avro.Record]] instances built from the Avro records.
    */
   def toRecord: RDD[Record] = map(Record.apply)
 
   /**
-   * Extract specific fields from an RDD of Avro records.
+   * Extract specific fields from a RDD of Avro records.
    *
-   * This operation extracts specific fields from an RDD of Avro records. Field values
+   * This operation extracts specific fields from a RDD of Avro records. Field values
    * are wrapped in an [[Option]].
    *
    * @param fieldNames the names of the fields to extract
-   * @return an RDD of sequences containing the field values requested.
+   * @return a RDD of sequences containing the field values requested.
    */
   def fields(fieldNames: String*): RDD[Seq[Option[JSerializable]]] = rdd.map { record =>
     val schema = record.getSchema
