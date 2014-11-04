@@ -33,11 +33,5 @@ libraryDependencies += "org.apache.avro"   %  "avro"                  % avroV
 libraryDependencies += "org.apache.avro"   %  "avro-mapred"           % avroV classifier "hadoop2" excludeAll
   ExclusionRule(organization = "org.apache.avro", name = "avro-ipc")
 
-assemblySettings
 
-mergeStrategy in assembly <<= (mergeStrategy in assembly) { (old) =>
-  {
-    case PathList(ps @ _*) if ps.last endsWith "pom.properties" => MergeStrategy.discard
-    case x => old(x)
-  }
-}
+assemblySettings
