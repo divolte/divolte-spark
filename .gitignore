@@ -13,6 +13,3 @@ target/
 .classpath
 .project
 .settings
-
-# Checkpoints if you're running locally during development.
-checkpoints/
