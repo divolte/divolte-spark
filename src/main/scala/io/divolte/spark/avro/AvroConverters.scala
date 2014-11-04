@@ -55,4 +55,16 @@ object AvroConverters {
     import scala.collection.JavaConverters._
     avroList.asScala.map(avro2scala)
   }
+
+  private[spark] def extractFields(record: IndexedRecord,
+                                   fieldNames: String*): Seq[Option[JSerializable]] = {
+    val schema = record.getSchema
+    fieldNames.map { fieldName =>
+      val field = schema.getField(fieldName)
+      if (null == field) {
+        throw new NoSuchElementException(s"Record does not contain field: $fieldName")
+      }
+      Option.apply(record.get(field.pos())).map(AvroConverters.avro2scala)
+    }
+  }
 }

@@ -13,6 +13,9 @@ scalacOptions := Seq("-unchecked", "-deprecation", "-encoding", "utf8", "-target
 // Experimental: improved incremental compilation.
 incOptions    := incOptions.value.withNameHashing(nameHashing = true)
 
+// Enable during development to access local maven artifacts.
+resolvers += Resolver.mavenLocal
+
 // These dependencies assume many are supplied by the Spark execution container.
 // TODO: How do we go about different Hadoop version deps?
 // Should we provide a env var option for this?
@@ -33,5 +36,6 @@ libraryDependencies += "org.apache.avro"   %  "avro"                  % avroV
 libraryDependencies += "org.apache.avro"   %  "avro-mapred"           % avroV classifier "hadoop2" excludeAll
   ExclusionRule(organization = "org.apache.avro", name = "avro-ipc")
 
+libraryDependencies += "io.divolte"        %  "divolte-schema"        % "0.1-SNAPSHOT"
 
 assemblySettings

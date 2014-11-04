@@ -55,15 +55,8 @@ class AvroRDDMagnet[+T <: IndexedRecord : ClassTag] private[AvroRDDMagnet] (rdd:
    * @param fieldNames the names of the fields to extract
    * @return a RDD of sequences containing the field values requested.
    */
-  def fields(fieldNames: String*): RDD[Seq[Option[JSerializable]]] = rdd.map { record =>
-    val schema = record.getSchema
-    fieldNames.map { fieldName =>
-      val field = schema.getField(fieldName)
-      if (null == field) {
-        throw new NoSuchElementException(s"Record does not contain field: $fieldName")
-      }
-      Option.apply(record.get(field.pos())).map(AvroConverters.avro2scala)
-    }
+  def fields(fieldNames: String*): RDD[Seq[Option[JSerializable]]] = {
+    rdd.map(AvroConverters.extractFields(_, fieldNames:_*))
   }
 }
 
