@@ -44,7 +44,7 @@ class AvroRDDMagnet[+T <: IndexedRecord : ClassTag] private[AvroRDDMagnet] (rdd:
    *
    * @return a RDD of [[io.divolte.spark.avro.Record]] instances built from the Avro records.
    */
-  def toRecord: RDD[Record] = map(Record.apply)
+  def toRecords: RDD[Record] = map(Record.apply)
 
   /**
    * Extract specific fields from a RDD of Avro records.

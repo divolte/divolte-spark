@@ -10,13 +10,12 @@ import org.apache.avro.util.Utf8
 
 /**
  * Converters for values contained in Avro records to Scala equivalents.
- * In general, the Scala equivalents are serializable and immutable. In
- * addition, scala collections are preferred.
+ * In general, the Scala equivalents are serializable and pattern-matchable.
  *
  * The conversions include:
  *
  *  - [[Utf8]] to [[String]]
- *  - [[ByteBuffer]] to [[ByteString]]
+ *  - [[ByteBuffer]] to [[Array[Byte]]]
  *  - [[IndexedRecord]] to [[Map[String,java.io.Serializable]]], with values converted recursively.
  *  - [[java.util.List]] to [[List[java.io.Serializable]], with values converted recursively.
  *
@@ -28,10 +27,10 @@ object AvroConverters {
     avroValue match {
       // Simple types
       case s: Utf8                 => avro2scala(s)
-      case b: ByteBuffer           => avro2scala(b)
+      case b: ByteBuffer           => avro2scala(b).asInstanceOf[JSerializable]
       // Complex types
-      case r: IndexedRecord        => avro2scala(r)
-      case a: JList[_]             => avro2scala(a.asInstanceOf[JList[AnyRef]])
+      case r: IndexedRecord        => avro2scala(r).asInstanceOf[JSerializable]
+      case a: JList[_]             => avro2scala(a.asInstanceOf[JList[AnyRef]]).asInstanceOf[JSerializable]
       // Anything else that's serializable, including null: pass-through
       case s: JSerializable        => s
       case null                    => null
