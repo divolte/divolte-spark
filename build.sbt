@@ -20,6 +20,11 @@ name          := "divolte-spark"
 
 version       := "0.1-SNAPSHOT"
 
+homepage      := Some(url("https://github.com/divolte/divolte-schema"))
+
+licenses      := Seq("The Apache License, Version 2.0" ->
+                     url("http://www.apache.org/licenses/LICENSE-2.0.txt"))
+
 scalaVersion  := "2.10.4"
 
 scalacOptions := Seq("-unchecked", "-deprecation", "-encoding", "utf8", "-target:jvm-1.7", "-feature")
@@ -53,3 +58,44 @@ libraryDependencies += "org.apache.avro"   %  "avro-mapred"           % avroV cl
 libraryDependencies += "io.divolte"        %  "divolte-schema"        % "0.1"
 
 assemblySettings
+
+// We're publishing to Sonatype's OSSRH.
+publishTo := {
+  val nexus = "https://oss.sonatype.org/"
+  if (isSnapshot.value)
+    Some("snapshots" at nexus + "content/repositories/snapshots")
+  else
+    Some("releases"  at nexus + "service/local/staging/deploy/maven2")
+}
+
+// OSSRH is maven-based.
+publishMavenStyle := true
+
+// Ensure that test artifacts are never published.
+publishArtifact in Test := false
+
+// Ensure that the repositories for any optional dependencies are not included.
+pomIncludeRepository := { _ => false }
+
+// Required metadata for publication to OSSRH.
+pomExtra :=
+  <scm>
+    <connection>scm:git:git@github.com:divolte/divolte-schema.git</connection>
+    <developerConnection>scm:git:git@github.com:divolte/divolte-schema.git</developerConnection>
+    <url>git@github.com:divolte/divolte-schema.git</url>
+    <tag>HEAD</tag>
+  </scm>
+  <developers>
+    <developer>
+      <name>Friso van Vollenhoven</name>
+      <email>frisovanvollenhoven@godatadriven.com</email>
+      <organization>GoDataDriven B.V.</organization>
+      <organizationUrl>http://godatadriven.com</organizationUrl>
+    </developer>
+    <developer>
+      <name>Andrew Snare</name>
+      <email>andrewsnare@godatadriven.com</email>
+      <organization>GoDataDriven B.V.</organization>
+      <organizationUrl>http://godatadriven.com</organizationUrl>
+    </developer>
+  </developers>
