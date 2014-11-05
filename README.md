@@ -27,14 +27,14 @@ You can then start the PySpark REPL:
 To access the Divolte events that use the default schema you can use:
 
 ```python
-// Assuming 'sc' is the Spark Context…
+# Assuming 'sc' is the Spark Context…
 events = sc.newAPIHadoopFile(
     "hdfs:///path/to/avro/files/*.avro",
     'org.apache.avro.mapreduce.AvroKeyInputFormat',
     'org.apache.avro.mapred.AvroKey',
     'org.apache.hadoop.io.NullWritable',
     keyConverter='io.divolte.spark.pyspark.avro.AvroWrapperToJavaConverter').map(lambda (k,v): k)
-// 'events' is now an RDD containing the events in the matching Avro files.
+# 'events' is now an RDD containing the events in the matching Avro files.
 ```
 
 When using `spark-submit` to submit jobs, the JAR needs to be passed to
