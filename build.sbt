@@ -18,7 +18,7 @@ organization  := "io.divolte"
 
 name          := "divolte-spark"
 
-version       := "0.1"
+version       := "0.2-SNAPSHOT"
 
 homepage      := Some(url("https://github.com/divolte/divolte-schema"))
 
