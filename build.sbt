@@ -14,8 +14,6 @@
 // limitations under the License.
 //
 
-import AssemblyKeys._
-
 organization  := "io.divolte"
 
 name          := "divolte-spark"
