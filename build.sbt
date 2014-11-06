@@ -103,4 +103,10 @@ pomExtra :=
       <organization>GoDataDriven B.V.</organization>
       <organizationUrl>http://godatadriven.com</organizationUrl>
     </developer>
+    <developer>
+      <name>Kris Geusebroek</name>
+      <email>krisgeusebroek@godatadriven.com</email>
+      <organization>GoDataDriven B.V.</organization>
+      <organizationUrl>http://godatadriven.com</organizationUrl>
+    </developer>
   </developers>
