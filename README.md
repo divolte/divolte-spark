@@ -45,7 +45,7 @@ using *both* the `--jars` and `--driver-class-path` options.
 If building a Spark application, you can add Divolte Spark to your
 dependencies by adding the following line to your SBT build:
 
-    libraryDependencies += "io.divolte" %% "divolte-spark" % "0.1-SNAPSHOT"
+    libraryDependencies += "io.divolte" %% "divolte-spark" % "0.1"
 
 To load Divolte events as a Spark RDD:
 
