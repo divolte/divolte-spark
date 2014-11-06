@@ -79,6 +79,11 @@ pomIncludeRepository := { _ => false }
 
 // Required metadata for publication to OSSRH.
 pomExtra :=
+  <inceptionYear>2014</inceptionYear>
+  <organization>
+    <name>GoDataDriven B.V.</name>
+    <url>http://godatadriven.com/</url>
+  </organization>
   <scm>
     <connection>scm:git:git@github.com:divolte/divolte-schema.git</connection>
     <developerConnection>scm:git:git@github.com:divolte/divolte-schema.git</developerConnection>
