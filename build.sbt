@@ -21,6 +21,8 @@ homepage      := Some(url("https://github.com/divolte/divolte-schema"))
 licenses      := Seq("The Apache License, Version 2.0" ->
                      url("http://www.apache.org/licenses/LICENSE-2.0.txt"))
 
+// Note that we can't currently build with 2.11 (or cross-compile) because
+// the spark-streaming-kafka dependency is only available for 2.10.
 scalaVersion  := "2.10.5"
 scalacOptions := Seq("-unchecked", "-deprecation", "-encoding", "utf8", "-target:jvm-1.7", "-feature")
 
