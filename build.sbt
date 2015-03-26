@@ -20,12 +20,13 @@ version       := "0.2-SNAPSHOT"
 homepage      := Some(url("https://github.com/divolte/divolte-schema"))
 licenses      := Seq("The Apache License, Version 2.0" ->
                      url("http://www.apache.org/licenses/LICENSE-2.0.txt"))
-scalaVersion  := "2.10.4"
 
+scalaVersion  := "2.10.5"
 scalacOptions := Seq("-unchecked", "-deprecation", "-encoding", "utf8", "-target:jvm-1.7", "-feature")
 
-// Experimental: improved incremental compilation.
+// Experimental: improved incremental compilation and update resolution.
 incOptions    := incOptions.value.withNameHashing(nameHashing = true)
+updateOptions := updateOptions.value.withCachedResolution(cachedResoluton = true)
 
 // Enable during development to access local maven artifacts.
 //resolvers += Resolver.mavenLocal
