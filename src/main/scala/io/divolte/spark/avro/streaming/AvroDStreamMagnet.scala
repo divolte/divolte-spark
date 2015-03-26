@@ -14,10 +14,11 @@
  * limitations under the License.
  */
 
-package io.divolte.spark.avro
+package io.divolte.spark.avro.streaming
 
 import java.io.{Serializable => JSerializable}
 
+import io.divolte.spark.avro.{AvroConverters, Record}
 import io.divolte.spark.kafka.AvroDecoder
 import org.apache.avro.Schema
 import org.apache.avro.generic.IndexedRecord
@@ -60,7 +61,7 @@ class AvroDStreamMagnet[K, +V >: Null <: IndexedRecord : ClassTag] private[AvroD
    * This operation must perform a deep copy of the Avro record with conversions
    * to ensure that everything can be serialized. If you only wish to access a
    * small subset of the Avro record, it can be more efficient to extract the
-   * fields you need using [[AvroRDDMagnet#fields]].
+   * fields you need using [[io.divolte.spark.avro.AvroRDDMagnet#fields]].
    *
    * @return a DStream of [[io.divolte.spark.avro.Record]] instances built from the Avro records.
    */
