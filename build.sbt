@@ -34,8 +34,8 @@ updateOptions := updateOptions.value.withCachedResolution(cachedResoluton = true
 // These dependencies assume many are supplied by the Spark execution container.
 // TODO: How do we go about different Hadoop version deps?
 // Should we provide a env var option for this?
-val sparkV = "1.2.0"
-val hadoopV = "2.4.0"
+val sparkV = "1.3.0"
+val hadoopV = "2.2.0"
 val avroV = "1.7.7"
 
 libraryDependencies += "org.apache.spark"  %% "spark-core"            % sparkV  % Provided
