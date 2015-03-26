@@ -45,7 +45,7 @@ libraryDependencies += "org.apache.hadoop" %  "hadoop-client"         % hadoopV 
 libraryDependencies += "org.apache.avro"   %  "avro"                  % avroV
 libraryDependencies += "org.apache.avro"   %  "avro-mapred"           % avroV classifier "hadoop2" excludeAll
   ExclusionRule(organization = "org.apache.avro", name = "avro-ipc")
-libraryDependencies += "io.divolte"        %  "divolte-schema"        % "0.1"
+libraryDependencies += "io.divolte"        %  "divolte-schema"        % "0.2.1"
 
 assemblySettings
 
